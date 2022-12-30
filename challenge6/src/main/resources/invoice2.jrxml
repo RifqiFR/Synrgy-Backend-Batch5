@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="764119bb-9529-4a42-bcdd-0443d9edd3f7">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[c2NoZWR1bGVzICwxMTYsMjAsZmM1NTJiZmEtNDczOS00MDE3LWI3ZjItZTA4Yzk4YjIzZjM2O2Zp
+bG1zICwyMCw0Niw0YjQwY2RhYi04NWM3LTQzMGItYTEyYi00YzQ4N2U4NzljMDE7c2VhdHMgLDI1
+Myw0NixjMmI3N2I3MC1mYWE4LTQxYWQtYjQwNS05MzE1NTk5MjljMzI7]]>
+	</property>
+	<parameter name="scheduleId" class="java.lang.Long"/>
+	<parameter name="seatId" class="java.lang.Long"/>
+	<parameter name="filmId" class="java.lang.Long"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT *
+FROM schedules s,
+	seats se,
+	films f
+WHERE 
+	 f.id = $P{filmId} 
+	 AND f.id = s.film_id 
+	 AND s.id = $P{scheduleId} 
+	 AND se.id = $P{seatId}]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="schedules"/>
+	</field>
+	<field name="waktu_mulai" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="waktu_mulai"/>
+		<property name="com.jaspersoft.studio.field.label" value="waktu_mulai"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="schedules"/>
+	</field>
+	<field name="waktu_selesai" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="waktu_selesai"/>
+		<property name="com.jaspersoft.studio.field.label" value="waktu_selesai"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="schedules"/>
+	</field>
+	<field name="film_id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="film_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="film_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="schedules"/>
+	</field>
+	<field name="COLUMN_5" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="seats"/>
+	</field>
+	<field name="nama_studio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama_studio"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama_studio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="seats"/>
+	</field>
+	<field name="no_kursi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="no_kursi"/>
+		<property name="com.jaspersoft.studio.field.label" value="no_kursi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="seats"/>
+	</field>
+	<field name="COLUMN_8" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="films"/>
+	</field>
+	<field name="code" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="code"/>
+		<property name="com.jaspersoft.studio.field.label" value="code"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="films"/>
+	</field>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="films"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="240" y="20" width="282" height="30" uuid="22b647ff-ff2f-41de-9ce5-b50959c6118d"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiket Film Bioskop]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="130" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="180" height="30" uuid="b4819b4b-546b-45cd-8cf7-bb80964b00ee">
+					<property name="com.jaspersoft.studio.element.name" value="Nama"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Nama Film	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="180" height="30" uuid="e09b112c-6c1e-4b94-9f69-c408da05d0b0">
+					<property name="com.jaspersoft.studio.element.name" value="Waktu"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Waktu Tayang	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="70" width="180" height="30" uuid="627bb0fe-8e60-4145-8775-81bac533772c">
+					<property name="com.jaspersoft.studio.element.name" value="Studio"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Studio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="100" width="180" height="30" uuid="9cba0558-f434-4966-aea8-afb56651f87f">
+					<property name="com.jaspersoft.studio.element.name" value="Kursi"/>
+				</reportElement>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Kursi]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="10" width="620" height="30" uuid="d6236cd8-c59e-4874-9df7-e47763f2780e"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="40" width="620" height="30" uuid="bbbc4bc7-d96f-4fe7-9b17-3b63d41e879b"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[DATEFORMAT($F{waktu_mulai}, "dd-MM-yyyy HH:mm")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="70" width="620" height="30" uuid="cffbd465-3b7b-493b-859b-779d36da71ab"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_studio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="100" width="180" height="30" uuid="19462f69-80b3-486e-b14f-c5d4a74a2881"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{no_kursi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
